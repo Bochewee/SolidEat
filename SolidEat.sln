@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolidEat.Android", "SolidEat\SolidEat.Android\SolidEat.Android.csproj", "{21FA6FE6-D0C7-4E3E-9A9D-94BB8D19AB8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolidEat", "SolidEat\SolidEat\SolidEat.csproj", "{EA297990-DE82-430A-8F7E-6AA5FF05A960}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{21FA6FE6-D0C7-4E3E-9A9D-94BB8D19AB8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21FA6FE6-D0C7-4E3E-9A9D-94BB8D19AB8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21FA6FE6-D0C7-4E3E-9A9D-94BB8D19AB8B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{21FA6FE6-D0C7-4E3E-9A9D-94BB8D19AB8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21FA6FE6-D0C7-4E3E-9A9D-94BB8D19AB8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21FA6FE6-D0C7-4E3E-9A9D-94BB8D19AB8B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{EA297990-DE82-430A-8F7E-6AA5FF05A960}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA297990-DE82-430A-8F7E-6AA5FF05A960}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA297990-DE82-430A-8F7E-6AA5FF05A960}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{EA297990-DE82-430A-8F7E-6AA5FF05A960}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA297990-DE82-430A-8F7E-6AA5FF05A960}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA297990-DE82-430A-8F7E-6AA5FF05A960}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B818A467-33E9-49DC-9DF0-C49F08D03BC0}
+	EndGlobalSection
+EndGlobal

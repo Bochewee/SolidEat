@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SolidEat.MainPage">
+    <StackLayout BackgroundColor="#67A97B" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <!-- Image de logo -->
+        <Image Source="https://i.ibb.co/m4gcbYV/logo.png" HorizontalOptions="Center" VerticalOptions="Start" Margin="0,20,0,0" />
+        <Label Text="Pour commencer &#x0a;quel âge avez vous ?" FontFamily="KoHo" FontSize="30" Margin="90,0,0,0" TextColor="Black"/>
+
+        <!-- Stepper personnalisé -->
+        <Grid VerticalOptions="Center" HorizontalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Bouton "+" en haut -->
+            <Button Text="+" 
+                    FontAttributes="None" 
+                    FontSize="60" 
+                    WidthRequest="60" 
+                    HeightRequest="60"
+                    Command="{Binding IncrementCommand}"
+                    Margin="150,60,150,30"
+                    Padding="0"
+                    BackgroundColor="#67A97B"
+                    Grid.Row="0"/>
+
+            <!-- Âge au milieu avec une bordure -->
+            <Frame BackgroundColor="Transparent" 
+                   BorderColor="Black" 
+                   CornerRadius="5" 
+                   Padding="10" 
+                   Margin="0,0,0,0"
+                   HorizontalOptions="Center" 
+                   VerticalOptions="CenterAndExpand"
+                   Grid.Row="1">
+                <Label Text="{Binding Age}" 
+                       FontSize="60" 
+                       FontAttributes="None" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="CenterAndExpand" 
+                       TextColor="black"/>
+            </Frame>
+
+            <!-- Bouton "-" en bas -->
+            <Button Text="-" 
+                    FontSize="70" 
+                    FontAttributes="None" 
+                    WidthRequest="60" 
+                    HeightRequest="60" 
+                    BackgroundColor="#67A97B" 
+                    TextColor="Black" 
+                    Command="{Binding DecrementCommand}"
+                    Margin="150,0,150,0" 
+                    Padding="0"
+                    Grid.Row="2"/>
+        </Grid>
+
+            <!-- Bouton Valider -->
+        <Button Text="Valider" 
+                FontAttributes="None"
+                FontFamily="KoHo"
+                BackgroundColor="#333" 
+                TextColor="White" 
+                VerticalOptions="End" 
+                Margin="100,100,100,60"
+                CornerRadius="10"
+                FontSize="25"
+                Command="{Binding ValidateCommand}"
+                Clicked="OnValidateButtonClicked"
+                />
+
+    </StackLayout>
+</ContentPage>
