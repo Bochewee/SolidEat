@@ -16,13 +16,17 @@ namespace SolidEat
         public MainPage()
         {
             InitializeComponent();
-            BindingContext = new MainViewModel();
+            BindingContext = new MainViewModel(Navigation);
         }
 
+        private async void OnValidateButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SecondQuestionPage());
+        }
 
         public class MainViewModel : INotifyPropertyChanged
         {
-            private int _age = 18; // Valeur initiale
+            private int _age = 18;
 
             public int Age
             {
@@ -54,15 +58,16 @@ namespace SolidEat
             {
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
-            public ICommand ValidateCommand => new Command(() =>
-            {
-                // Ajoutez votre logique de validation ici
-                Console.WriteLine($"L'âge validé est {Age}");
-            });
+            public ICommand ValidateCommand { get; }
 
-            private async void OnValidateButtonClicked(object sender, EventArgs e)
+            public MainViewModel(INavigation navigation)
             {
-                await Navigation.PushAsync(new SecondQuestionPage());
+                ValidateCommand = new Command(async () =>
+                {
+                    // Utilisation de navigation passée au ViewModel
+                    await navigation.PushAsync(new SecondQuestionPage());
+                    Console.WriteLine("Validation");
+                });
             }
 
         }
