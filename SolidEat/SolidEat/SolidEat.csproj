@@ -40,6 +40,9 @@
     <Compile Update="Views\SecondQuestionPage.xaml.cs">
       <DependentUpon>SecondQuestionPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\ThirdQuestionPage.xaml.cs">
+      <DependentUpon>ThirdQuestionPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -47,6 +50,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\SecondQuestionPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ThirdQuestionPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

@@ -19,8 +19,8 @@
             <Button Text="+" 
                     FontAttributes="None" 
                     FontSize="60" 
-                    WidthRequest="60" 
-                    HeightRequest="60"
+                    WidthRequest="0" 
+                    HeightRequest="80"
                     Command="{Binding IncrementCommand}"
                     Margin="150,60,150,30"
                     Padding="0"
@@ -48,8 +48,8 @@
             <Button Text="-" 
                     FontSize="70" 
                     FontAttributes="None" 
-                    WidthRequest="60" 
-                    HeightRequest="60" 
+                    WidthRequest="0" 
+                    HeightRequest="80" 
                     BackgroundColor="#67A97B" 
                     TextColor="Black" 
                     Command="{Binding DecrementCommand}"
@@ -58,18 +58,17 @@
                     Grid.Row="2"/>
         </Grid>
 
-            <!-- Bouton Valider -->
+        <!-- Bouton Valider -->
         <Button Text="Valider" 
                 FontAttributes="None"
                 FontFamily="KoHo"
                 BackgroundColor="#333" 
                 TextColor="White" 
                 VerticalOptions="End" 
-                Margin="100,50,100,60"
-                CornerRadius="10"
+                Margin="100,20,100,60"
+                CornerRadius="20"
                 FontSize="25"
                 Clicked="OnValidateButtonClicked"
                 />
-
     </StackLayout>
 </ContentPage>

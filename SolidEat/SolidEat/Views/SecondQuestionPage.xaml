@@ -3,8 +3,38 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SolidEat.SecondQuestionPage">
 
-    <StackLayout>
-        <Label Text="Hello Xamarin.Forms!" BackgroundColor="#67A97B"/>
+    <StackLayout BackgroundColor="#67A97B" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <!-- Image de logo -->
+        <Image Source="https://i.ibb.co/m4gcbYV/logo.png" HorizontalOptions="Center" VerticalOptions="Start" Margin="0,20,0,0" />
+        <Label Text="Pourquoi venez-vous ?" FontFamily="KoHo" FontSize="30" Margin="60,0,0,0" TextColor="Black"/>
+
+        <Button Text="Je suis un restaurant" 
+        FontSize="20" 
+        Clicked="OnButtonClicked"
+        BackgroundColor="#333"
+        TextColor="White" 
+        CornerRadius="20"
+        Margin="30,60,30,0"
+        FontFamily="KoHo"/>
+
+        <Button Text="Je suis un donateur" 
+        FontSize="20" 
+        Clicked="OnButtonClicked"
+        BackgroundColor="#333"
+        TextColor="White" 
+        CornerRadius="20"
+        Margin="30,30,30,0"
+        FontFamily="KoHo"/>
+
+        <Button Text="Je réserve mon plat" 
+        FontSize="20" 
+        Clicked="OnButtonClicked"
+        BackgroundColor="#333"
+        TextColor="White" 
+        CornerRadius="20"
+        Margin="30,30,30,0"
+        FontFamily="KoHo"/>
+
     </StackLayout>
 
 </ContentPage>

@@ -10,7 +10,6 @@ using Xamarin.Forms;
 
 namespace SolidEat
 {
-
     public partial class MainPage : ContentPage
     {
         public MainPage()
@@ -66,11 +65,11 @@ namespace SolidEat
                 {
                     // Utilisation de navigation passée au ViewModel
                     await navigation.PushAsync(new SecondQuestionPage());
-                    Console.WriteLine("Validation");
                 });
             }
 
         }
 
     }
+
 }
