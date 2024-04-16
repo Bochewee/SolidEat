@@ -1,7 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using System.Threading.Tasks;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using SolidEat;
-
 
 namespace SolidEat
 {
@@ -11,17 +10,13 @@ namespace SolidEat
         public ThirdQuestionPage(string userResponse)
         {
             InitializeComponent();
-            // Utilisez la réponse ici, par exemple, affichez-la dans un Label
-            Label responseLabel = new Label
-            {
-                Text = $"Votre choix : {userResponse}",
-                FontSize = 24,
-                HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.Center
-            };
-            this.Content = responseLabel;
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            // Attendez un court délai pour assurer une transition fluide
+            await Navigation.PushAsync(new LoginPage());
         }
     }
-
-
 }
