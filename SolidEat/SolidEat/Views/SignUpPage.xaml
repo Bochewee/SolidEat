@@ -7,12 +7,18 @@
         <Label Text="Inscription" FontFamily="KoHo" FontSize="30" HorizontalOptions="Center" TextColor="White" Margin="0,30,0,10"/>
 
         <!-- Champs d'inscription -->
-        <Entry Placeholder="Nom" Margin="20"/>
-        <Entry Placeholder="Prénom" Margin="20"/>
-        <Entry Placeholder="Adresse mail" Keyboard="Email" Margin="20"/>
-        <Entry Placeholder="Mot de passe" IsPassword="True" Margin="20"/>
+        <Entry x:Name="firstNameEntry" Placeholder="Nom" Margin="20"/>
+        <Entry x:Name="lastNameEntry" Placeholder="Prénom" Margin="20"/>
+        <Entry x:Name="emailEntry" Placeholder="Adresse mail" Keyboard="Email" Margin="20"/>
+        <Entry x:Name="passwordEntry" Placeholder="Mot de passe" IsPassword="True" Margin="20"/>
 
         <!-- Bouton pour s'inscrire -->
         <Button Text="S'inscrire" FontFamily="KoHo" Margin="50,20,50,0" BackgroundColor="#333" TextColor="White" CornerRadius="20" Clicked="OnSignUpClicked"/>
+        <Button Text="Déjà inscrit ? Connectez-vous"
+            FontAttributes="None"
+            BackgroundColor="#67A97B"
+            TextColor="White"
+            Clicked="OnSignInClicked"/>
     </StackLayout>
 </ContentPage>
+

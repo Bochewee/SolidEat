@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SolidEat.AdminPage"
+             Title="Administrateur">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ContentView x:Name="contentHolder" Grid.Row="0" />
+
+        <!-- Liste des utilisateurs -->
+        <ListView x:Name="usersListView" Grid.Row="0"
+                  ItemsSource="{Binding Users}"
+                  HasUnevenRows="True"
+                  SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame CornerRadius="10" Padding="10" BorderColor="LightGray" HasShadow="True">
+                            <StackLayout Orientation="Vertical" Spacing="5">
+                                <!-- Informations de l'utilisateur -->
+                                <Label Text="{Binding FirstName, StringFormat='Prénom : {0}'}" FontAttributes="Bold" />
+                                <Label Text="{Binding LastName, StringFormat='Nom : {0}'}" FontAttributes="Bold" />
+                                <Label Text="{Binding Age, StringFormat='Âge : {0}'}" FontAttributes="Bold"/>
+                                <Label Text="{Binding Email, StringFormat='Email : {0}'}" FontAttributes="Bold"/>
+                                <Label Text="{Binding Role, StringFormat='Rôle : {0}'}" FontAttributes="Bold"/>
+
+                                <!-- Bouton Supprimer -->
+                                <Button Text="Supprimer"
+                                    BackgroundColor="#D80505"
+                                    TextColor="White"
+                                    CommandParameter="{Binding .}"
+                                    Clicked="OnDeleteUser"
+                                    CornerRadius="20"
+                                    Margin="0,10,0,0" />
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- Menu avec icônes en bas -->
+        <StackLayout x:Name="contentHolder" Grid.Row="0">
+            <Image Source="https://i.ibb.co/3TQ5qPb/shop.png" HorizontalOptions="FillAndExpand" Aspect="AspectFit">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnRestaurantsTapped" />
+                </Image.GestureRecognizers>
+            </Image>
+            <Image Source="https://i.ibb.co/ykJGNCk/stars.png" HorizontalOptions="FillAndExpand" Aspect="AspectFit">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnReviewsTapped" />
+                </Image.GestureRecognizers>
+            </Image>
+            <Image Source="https://i.ibb.co/mbsGS6b/people.png" HorizontalOptions="FillAndExpand" Aspect="AspectFit">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnUsersTapped" />
+                </Image.GestureRecognizers>
+            </Image>
+        </StackLayout>
+    </Grid>
+</ContentPage>

@@ -2,6 +2,7 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -12,7 +13,6 @@ namespace SolidEat
 {
     public partial class App : Application
     {
-        string dbPath = Path.Combine(FileSystem.AppDataDirectory, "database.db3");
 
         public static UserRepository UserRepository { get; private set; }
 
@@ -20,9 +20,17 @@ namespace SolidEat
         {
             InitializeComponent();
 
+            string dbPath = Path.Combine(FileSystem.AppDataDirectory, "SolidEat.db3");
             UserRepository = new UserRepository(dbPath);
 
-            MainPage = new NavigationPage(new MainPage());
+            if (!Application.Current.Properties.ContainsKey("IsRegistered"))
+            {
+                MainPage = new NavigationPage(new SignUpPage());
+            }
+            else
+            {
+                MainPage = new NavigationPage(new LoginPage());
+            }
         }
 
         protected override void OnStart()
@@ -40,4 +48,5 @@ namespace SolidEat
             Debug.WriteLine("OnResume");
         }
     }
+
 }

@@ -37,6 +37,7 @@
                    VerticalOptions="CenterAndExpand"
                    Grid.Row="1">
                 <Label Text="{Binding Age}" 
+                       x:Name="ageEntry"
                        FontSize="60" 
                        FontAttributes="None" 
                        HorizontalOptions="Center" 

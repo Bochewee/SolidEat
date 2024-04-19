@@ -8,11 +8,28 @@
         <Label Text="Connexion" FontFamily="KoHo" FontSize="30" Margin="0,30,0,10" TextColor="White" HorizontalOptions="Center"/>
 
         <!-- Formulaire de connexion -->
-        <Entry Placeholder="Email" Keyboard="Email" Margin="20" />
-        <Entry Placeholder="Mot de passe" IsPassword="True" Margin="20" />
+        <Entry x:Name="emailEntry" Placeholder="Email" Keyboard="Email" Margin="20" />
+
+        <Grid Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Entry x:Name="passwordEntry" Placeholder="Mot de passe" IsPassword="True" Grid.Column="0" />
+
+            <!-- Conteneur pour l'image qui fonctionne comme un bouton -->
+            <Frame Grid.Column="1" BackgroundColor="Transparent" Padding="0" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="40" HeightRequest="40">
+                <Image Source="https://cdn-icons-png.flaticon.com/512/66/66880.png" WidthRequest="10" HeightRequest="10">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding TogglePasswordVisibilityCommand}" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </Frame>
+        </Grid>
 
         <!-- Bouton de connexion -->
-        <Button Text="Se connecter" FontFamily="KoHo" Margin="50,50,50,0" BackgroundColor="#333" TextColor="White" CornerRadius="20" Clicked="OnLoginClicked"/>
+        <Button Text="Se connecter" FontFamily="KoHo" Margin="50,20,50,0" BackgroundColor="#333" TextColor="White" CornerRadius="20" Clicked="OnLoginClicked"/>
 
         <!-- Lien d'inscription -->
         <Label Text="Pas encore inscrit ? Inscrivez-vous ici" FontFamily="KoHo" HorizontalOptions="Center" TextColor="White" Margin="0,20,0,0">
@@ -20,5 +37,6 @@
                 <TapGestureRecognizer Tapped="OnSignUpTapped"/>
             </Label.GestureRecognizers>
         </Label>
+
     </StackLayout>
 </ContentPage>

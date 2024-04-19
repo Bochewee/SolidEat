@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
-using SolidEat.Models;
+﻿using System.Threading.Tasks;
 using SQLite;
+using SolidEat.Models;
+using System.Collections.Generic;
 
 namespace SolidEat.Repositories
 {
@@ -12,42 +9,52 @@ namespace SolidEat.Repositories
     {
         private SQLiteAsyncConnection connection;
 
-        public string StatusMessage { get; set; }
-
         public UserRepository(string dbPath)
-           {
-               connection = new SQLiteAsyncConnection(dbPath);
-               connection.CreateTableAsync<User>();
-           }
-
-        public async Task AddNewUserAsync(string name)
         {
-            int result = 0;
-
-            try
-            {
-                result = await connection.InsertAsync(new User { Name = name });
-
-                StatusMessage = $"{result} utilisateur ajouté : {name}";
-            }
-            catch (Exception ex)
-            {
-                StatusMessage = $"Impossible d'ajouter l'utilisateur : {name}.\n Erreur : {ex.Message}";
-            }
+            connection = new SQLiteAsyncConnection(dbPath);
+            connection.CreateTableAsync<User>().Wait();
         }
 
-        public async Task<List<User>> GetUsersAsync()
+        public async Task InitializeAsync()
         {
-            try
-            {
-                return await connection.Table<User>().ToListAsync();
-            }
-            catch (Exception ex)
-            {
-                StatusMessage = $"Impossible de récupérer les utilisateurs.\n Erreur : {ex.Message}";
-            }
+            await connection.CreateTableAsync<User>();
+        }
 
-            return new List<User>();    
+        // Ajouter les paramètres pour age et role
+        public async Task AddNewUserAsync(string firstName, string lastName, string email, string password, int age, string role)
+        {
+            var newUser = new User
+            {
+                FirstName = firstName,
+                LastName = lastName,
+                Email = email,
+                Password = password,
+                Age = age,
+                Role = role
+            };
+            await connection.InsertAsync(newUser);
+        }
+
+        public async Task<bool> CheckLoginAsync(string email, string password)
+        {
+            var user = await connection.Table<User>().FirstOrDefaultAsync(u => u.Email == email);
+            return user != null && user.Password == password;
+        }
+
+        public async Task<List<User>> GetAllUsersAsync()
+        {
+            return await connection.Table<User>().ToListAsync();
+        }
+
+        public async Task DeleteUserAsync(int userId)
+        {
+            await connection.DeleteAsync<User>(userId);
+        }
+
+        public async Task<List<User>> GetUsersByRoleAsync(string role)
+        {
+            // Adaptez la requête pour filtrer par rôle
+            return await connection.Table<User>().Where(u => u.Role == role).ToListAsync();
         }
     }
 }
